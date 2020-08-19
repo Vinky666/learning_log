@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django learning</title>
+</head>
+<body>
+{% extends 'learning_log/base.html' %}
+{% load bootstrap4 %}
+{% block page_header %}
+    <h2>Update entry: </h2>
+{% endblock page_header %}
+{% block content %}
+    <form action="{% url 'main:up_entry' entry.id %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button name="Submit" class="btn btn-primary">Add item</button>
+    </form>
+{% endblock content %}
+</body>
+</html>
